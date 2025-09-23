@@ -1,0 +1,37 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+env/
+venv/
+*.egg-info/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Raspberry Pi specific
+*.swp
+*.bak
+
+# Database files (if any)
+*.db
+*.sqlite3
+
+# Environment Variables
+.env
+
+# Project specific - captured media files
+static/motion_images/*.jpg
+static/motion_videos/*.h264
+
+# Keep the directories but not the files
+!static/motion_images/.gitkeep
+!static/motion_videos/.gitkeep
