@@ -1,32 +1,125 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 1px;
+  background-image: url("img/yellowbg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.container {
-    background: white;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-    text-align: center;
+/* Top Nav Layout */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #cebc72c9;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 5px;
 }
 
-button {
-    padding: 10px 20px;
-    margin-top: 15px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+.top-nav h2 {
+  font-size: 18px;
+  color: rgb(74, 64, 3);
+  
 }
 
-button:hover {
-    background-color: #0056b3;
+.top-nav h4 {
+  font-size: 15px;
+  color: rgb(74, 64, 3);
+  
+}
+
+.nav-left {
+  flex: 1;
+  text-align: left;
+  font-family: 'Fredericka the Great', sans-serif;
+}
+
+.nav-center {
+  flex: 1;
+  text-align: center;
+  font-family: 'Changa', sans-serif;
+}
+
+.nav-right {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'Changa', sans-serif;
+  gap: 15px;
+  color: rgb(59, 51, 2);
+}
+
+.sensor-group {
+  text-align: center;
+  display: flex;
+  gap: 15px;
+  
+}
+
+#gas-sensor,
+#vibration-sensor {
+  background: #a7944dc9;
+  font-size: 15px;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+}
+
+#warning-image {
+  display: none; /* hidden by default */
+  position: fixed; /* stay in same place even when scrolling */
+  top: 50%; /* vertical center */
+  left: 50%; /* horizontal center */
+  transform: translate(-50%, -50%); /* perfect center */
+  z-index: 9999; /* above everything */
+  width: 2000px; /* adjust size as needed */
+  pointer-events: none; /* so it doesn’t block clicks */
+}
+
+/* Flashing animation */
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#warning-image.flash {
+  animation: flash 0.5s infinite; /* blink speed */
+}
+
+/* Charts Grid */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columns side by side */
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.chart-box {
+  background: #fffef8f1;
+  padding: 15px;
+  border: 5px solid  #bbaa64c9;
+  border-radius: 8px;
+  margin-bottom: 1px;
+  color: rgb(103, 88, 3);
+  font-family: 'Changa', sans-serif;
+}
+
+.chart-box h3 {
+  text-align: center;
+}
+
+.chart-box canvas {
+  width: 100% !important;
+  height: 300px !important;
 }

@@ -1,17 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Flask Minimal Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sensor Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Fredericka+the+Great&family=Germania+One&family=Girassol&family=Gorditas:wght@400;700&family=Lily+Script+One&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Fredericka+the+Great&family=Germania+One&family=Girassol&family=Gorditas:wght@400;700&family=Lily+Script+One&family=Rye&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Concert+One&family=Fredericka+the+Great&family=Germania+One&family=Girassol&family=Gorditas:wght@400;700&family=Lily+Script+One&family=Rye&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Concert+One&family=Fredericka+the+Great&family=Germania+One&family=Girassol&family=Gorditas:wght@400;700&family=Joti+One&family=Lily+Script+One&family=Rye&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="container">
-        <h1>Hello Flask!</h1>
-        <p>This is a minimal Flask app with CSS and JS.</p>
-        <button id="clickBtn">Click Me!</button>
-    </div>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- <h1>Gas and Vibration Status</h1> -->
+
+      <!-- Top Nav Bar -->
+      <nav class="top-nav">
+        <div class="nav-left">
+          <h2>Gas and Vibration Status</h2>
+        </div>
+        <div class="nav-center">
+          <div id="buzzer-status"></div>
+        </div>
+        <div class="nav-right">
+          <div class="sensor-group">
+            <div id="gas-sensor">
+              <h4>Gas Sensor</h4>
+              <div id="gas-data"></div>
+            </div>
+            <div id="vibration-sensor">
+              <h4>Vibration Sensor</h4>
+              <div id="vibration-data"></div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Keep Warning Image outside (unchanged) -->
+      <img
+        id="warning-image"
+        src="{{ url_for('static', filename='image/warning.png') }}"
+        alt="Warning"
+        style="display: none; width: 150px"
+      />
+
+
+      <!-- Charts Section -->
+      <section id="charts">
+        <div class="charts-grid">
+          <!-- Gas Chart -->
+          <div class="chart-box">
+            <h3>Gas Sensor Readings Over Time</h3>
+            <canvas id="gasChart"></canvas>
+          </div>
+
+          <!-- Vibration Chart -->
+          <div class="chart-box">
+            <h3>Vibration Sensor Readings Over Time</h3>
+            <canvas id="vibrationChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
+  </body>
 </html>
